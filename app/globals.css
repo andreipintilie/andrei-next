@@ -1,26 +1,202 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-family-sans: var(--font-poppins), 'Poppins', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --color-primary: #101111;
+  --color-secondary: #7a87fb;
+  --color-tertiary: #ffd49c;
+
+  --text-small: 0.75rem;
+
+  --color-black-primary: #292929;
+  --color-black-secondary: #1c1c1c;
+
+  --radius-primary: 290px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility textGradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to left, #7a87fb, #ffd49c);
+  color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility bgGradient {
+  background-image: linear-gradient(to left, #7a87fb, #ffd49c);
+  line-height: 0;
+}
+
+@utility btnPrimary {
+  background-image: linear-gradient(to left, #7a87fb, #ffd49c);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 0.75rem 1.5rem;
+  border-radius: 290px;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #101111;
+  text-decoration: none;
+  transition: background-image 0.3s ease;
+}
+
+@utility btnPrimaryHover {
+  background-image: linear-gradient(to left, #ffd49c, #7a87fb);
+}
+
+@utility iconButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@utility containerSecondary {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: calc(var(--spacing) * 6);
+
+  @media (width >= 40rem) {
+    max-width: 40rem;
+  }
+  @media (width >= 48rem) {
+    max-width: 48rem;
+  }
+  @media (width >= 64rem) {
+    max-width: 64rem;
+  }
+  @media (width >= 80rem) {
+    max-width: 80rem;
+  }
+  @media (width >= 96rem) {
+    max-width: 96rem;
   }
 }
 
+@utility section {
+  color: var(--color-white);
+  margin-top: calc(var(--spacing) * 20);
+
+  &:last-child {
+    margin-bottom: calc(var(--spacing) * 20);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media (width >= 48rem) {
+    margin-top: calc(var(--spacing) * 40);
+
+    &:last-child {
+      margin-bottom: calc(var(--spacing) * 40);
+    }
+  }
+}
+
+@utility sectionAnimated {
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+@utility sectionVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  background-color: var(--color-primary);
+}
+
+main {
+  padding-top: var(--header-height);
+}
+
+:root {
+  --header-height: 6.25rem;
+
+  --color-secondary-rgb: 122, 135, 251;
+  --color-tertiary-rgb: 255, 212, 156;
+}
+
+[data-background] {
+  --dot-bg: var(--color-primary);
+  --dot-color: white;
+  --dot-size: 0.2rem;
+  --dot-space: 1.5rem;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    opacity: 0.2;
+    display: block;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(
+          90deg,
+          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      linear-gradient(
+          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      var(--dot-color);
+  }
+}
+
+@utility borderColor {
+  position: relative;
+  background-image: linear-gradient(to right, #7a87fb, #ffd49c);
+  padding: 2px;
+  border-radius: 290px;
+
+  box-shadow: 0 0 10px rgba(122, 135, 251, 0.4),
+    0 0 20px rgba(255, 212, 156, 0.3);
+}
+
+@utility button {
+  background-image: linear-gradient(to left, #7a87fb, #ffd49c);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  border-radius: 290px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  cursor: pointer;
+
+  &:hover {
+    background-image: linear-gradient(to left, #ffd49c, #7a87fb);
+  }
+}
+
+@utility textLogo {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.05em;
+
+  @media (min-width: 1024px) {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
