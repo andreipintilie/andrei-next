@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ContentProvider } from '@/contexts/ContentContext';
+import { getAllContent } from '@/lib/contentful';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -15,11 +16,15 @@ export const metadata = {
   description: 'Front-End Developer based in Timisoara, Romania',
 };
 
-export default function RootLayout({ children }) {
+export const revalidate = 300;
+
+export default async function RootLayout({ children }) {
+  const initialContent = await getAllContent();
+
   return (
     <html lang='en'>
       <body className={`${poppins.variable} antialiased`}>
-        <ContentProvider>
+        <ContentProvider initialContent={initialContent}>
           <Header />
           <main>{children}</main>
           <Footer />
