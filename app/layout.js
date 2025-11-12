@@ -16,7 +16,7 @@ export const metadata = {
   description: 'Front-End Developer based in Timisoara, Romania',
 };
 
-export const revalidate = 300;
+export const dynamic = 'force-dynamic';
 
 export default async function RootLayout({ children }) {
   const initialContent = await getAllContent();
