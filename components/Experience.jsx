@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useContent } from '@/contexts/ContentContext';
 import SectionTitle from './SectionTitle';
 import { Icon } from '@iconify/react';
@@ -8,10 +9,17 @@ const Experience = ({ transitionDelay }) => {
   const { content } = useContent();
 
   return (
-    <section
-      className='text-white section sectionAnimated containerSecondary'
+    <motion.section
+      className='section containerSecondary'
       id='experience'
-      style={transitionDelay ? { transitionDelay } : undefined}
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 0.8,
+        delay: transitionDelay ? parseFloat(transitionDelay) : 0,
+        ease: 'easeOut',
+      }}
     >
       <SectionTitle>
         Experience
@@ -20,10 +28,8 @@ const Experience = ({ transitionDelay }) => {
           className='bg-white p-1 rounded-full text-primary'
         />
       </SectionTitle>
-
       <div className='flex'>
-        <div className='opacity-35 ml-4 border-white border-l-[0.0625rem]'></div>
-
+        <div className='opacity-35 ml-4 border-white border-l'></div>
         <ul className='flex flex-col gap-12'>
           {content.experience.map((item, index) => (
             <li
@@ -44,7 +50,7 @@ const Experience = ({ transitionDelay }) => {
           ))}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

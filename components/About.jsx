@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useContent } from '@/contexts/ContentContext';
 import SectionTitle from './SectionTitle';
 import { Icon } from '@iconify/react';
@@ -8,12 +9,19 @@ const About = ({ transitionDelay }) => {
   const { content } = useContent();
 
   return (
-    <section
-      className='mt-10 md:mt-20 section sectionAnimated'
+    <motion.section
+      className='section'
       id='about'
-      style={transitionDelay ? { transitionDelay } : undefined}
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 0.8,
+        delay: transitionDelay ? parseFloat(transitionDelay) : 0,
+        ease: 'easeOut',
+      }}
     >
-      <div className='mx-auto containerSecondary'>
+      <div className='containerSecondary'>
         <SectionTitle>
           About Me
           <Icon
@@ -21,7 +29,6 @@ const About = ({ transitionDelay }) => {
             className='bg-white p-0.5 rounded-full text-primary'
           />
         </SectionTitle>
-
         <div
           className='text-white text-lg'
           dangerouslySetInnerHTML={{
@@ -29,7 +36,7 @@ const About = ({ transitionDelay }) => {
           }}
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 
-export default function GetResume({ hideOnMobile = false }) {
+const GetResume = ({ hideOnMobile = false }) => {
   return (
     <a
       href='/CV.pdf'
@@ -12,4 +12,6 @@ export default function GetResume({ hideOnMobile = false }) {
       Get CV <Icon icon='mynaui:arrow-up-right' className='text-xl' />
     </a>
   );
-}
+};
+
+export default GetResume;

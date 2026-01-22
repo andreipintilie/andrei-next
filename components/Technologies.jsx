@@ -1,35 +1,28 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import { useContent } from '@/contexts/ContentContext';
 import Chip from './Chip';
-import LoadingSpinner from './LoadingSpinner';
-import { initSectionAnimations } from '@/utils/sectionObserver';
 
 const Technologies = ({ transitionDelay }) => {
-  const { content, loading } = useContent();
-
-  useEffect(() => {
-    const observer = initSectionAnimations();
-    return () => {
-      if (observer) {
-        observer.disconnect();
-      }
-    };
-  }, []);
-
-  if (loading || !content?.technologies) {
-    return <LoadingSpinner text='Loading technologies...' />;
-  }
+  const { content } = useContent();
 
   return (
-    <section
-      className='mt-6 md:mt-10 text-white sectionAnimated'
+    <motion.section
+      className='section'
       id='technologies'
-      style={transitionDelay ? { transitionDelay } : undefined}
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 0.8,
+        delay: transitionDelay ? parseFloat(transitionDelay) : 0,
+        ease: 'easeOut',
+      }}
     >
-      <div className='mx-auto containerSecondary'>
+      <div className='containerSecondary'>
         <ul className='flex flex-wrap gap-5 gap-y-3'>
           {content.technologies.map((technology, index) => (
             <li key={index}>
@@ -41,7 +34,7 @@ const Technologies = ({ transitionDelay }) => {
           ))}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

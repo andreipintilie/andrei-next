@@ -1,7 +1,4 @@
-export default function LoadingSpinner({
-  size = 'medium',
-  text = 'Loading...',
-}) {
+const LoadingSpinner = ({ size = 'medium', text = 'Loading...' }) => {
   const sizeClasses = {
     small: 'w-6 h-6',
     medium: 'w-12 h-12',
@@ -22,4 +19,6 @@ export default function LoadingSpinner({
       )}
     </div>
   );
-}
+};
+
+export default LoadingSpinner;

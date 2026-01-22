@@ -58,12 +58,12 @@ const MobileMenu = ({ isOpen, onClose }) => {
     <>
       <div
         ref={overlayRef}
-        className='lg:hidden fixed top-0 left-0 z-[100] bg-black bg-opacity-50 w-full h-screen transition-opacity'
+        className='lg:hidden fixed top-0 left-0 z-100 bg-black bg-opacity-50 w-full h-screen transition-opacity'
       />
 
       <nav
         ref={menuRef}
-        className={`lg:hidden fixed top-0 z-[101] bg-primary w-full max-w-60 sm:max-w-70 h-screen transition-all duration-300 ${
+        className={`lg:hidden fixed top-0 z-101 bg-primary w-full max-w-60 sm:max-w-70 h-screen transition-all duration-300 ${
           isOpen ? 'right-0' : '-right-full'
         }`}
       >

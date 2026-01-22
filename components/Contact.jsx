@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import SectionTitle from './SectionTitle';
@@ -52,10 +53,17 @@ const Contact = ({ transitionDelay }) => {
   }, []);
 
   return (
-    <section
-      className='section sectionAnimated containerSecondary'
+    <motion.section
+      className='section containerSecondary'
       id='contact'
-      style={transitionDelay ? { transitionDelay } : undefined}
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 0.8,
+        delay: transitionDelay ? parseFloat(transitionDelay) : 0,
+        ease: 'easeOut',
+      }}
     >
       <SectionTitle>
         Contact
@@ -130,7 +138,7 @@ const Contact = ({ transitionDelay }) => {
         </div>
 
         <div
-          className='place-items-center order-[-1] md:order-0 grid min-h-80'
+          className='place-items-center -order-1 md:order-0 grid min-h-80'
           data-background
         >
           <h3 className='font-semibold text-2xl md:text-3xl lg:text-4xl md:text-left text-center tracking-wide'>
@@ -141,7 +149,7 @@ const Contact = ({ transitionDelay }) => {
           </h3>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
