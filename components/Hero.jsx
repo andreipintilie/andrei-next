@@ -7,7 +7,7 @@ import { goToSection } from '@/utils/scrollUtils';
 const Hero = ({ transitionDelay }) => {
   return (
     <motion.section
-      className='flex items-center min-h-94 md:min-h-142 text-white section sectionAnimated md:pt-2'
+      className='flex items-center min-h-94 md:min-h-142 text-white section md:pt-2'
       data-background
       style={transitionDelay ? { transitionDelay } : undefined}
       initial={{ opacity: 0, y: 0 }}
