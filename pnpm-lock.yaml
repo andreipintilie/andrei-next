@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@contentful/rich-text-html-renderer':
-        specifier: ^17.1.5
+        specifier: ^17.1.6
         version: 17.1.6
       '@iconify/react':
         specifier: ^6.0.2
         version: 6.0.2(react@19.1.0)
       contentful:
-        specifier: ^11.8.4
+        specifier: ^11.10.2
         version: 11.10.2
       framer-motion:
-        specifier: ^12.28.1
-        version: 12.28.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^12.28.2
+        version: 12.28.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       lucide-react:
         specifier: ^0.544.0
         version: 0.544.0(react@19.1.0)
@@ -34,19 +34,19 @@ importers:
         version: 19.1.0(react@19.1.0)
     devDependencies:
       '@eslint/eslintrc':
-        specifier: ^3
+        specifier: ^3.3.3
         version: 3.3.3
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: ^4.1.18
         version: 4.1.18
       eslint:
-        specifier: ^9
+        specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
       eslint-config-next:
         specifier: 15.5.4
         version: 15.5.4(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       tailwindcss:
-        specifier: ^4
+        specifier: ^4.1.18
         version: 4.1.18
 
 packages:
@@ -1099,8 +1099,8 @@ packages:
     resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
     engines: {node: '>= 6'}
 
-  framer-motion@12.28.1:
-    resolution: {integrity: sha512-72GkO7DS4FfcSjf26wx0v+rzkW8Fhn4Djh04aDbuEg7NYG8X8MhJZc6/5weG/YeEgIP+fCo8FS2y1HnXH8k8fQ==}
+  framer-motion@12.28.2:
+    resolution: {integrity: sha512-LNzKJo1VWz3RqNSeBzMbDIdLLpUw7hp/PpsvOpDlLqT1KlAAGsoSZ3OxNAKmS89AUeRv0rBbYgFLAWzO33xzDw==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -1505,8 +1505,8 @@ packages:
   moo@0.5.2:
     resolution: {integrity: sha512-iSAJLHYKnX41mKcJKjqvnAN9sf0LMDTXDEvFv+ffuRR9a1MIuXLjMNL6EsnDHSkKLTWNqQQ5uo61P4EbU4NU+Q==}
 
-  motion-dom@12.28.1:
-    resolution: {integrity: sha512-xqgID69syDvXwFJnUd5bW6ajGUAr/qevRoUe/EqpsXUbVIopyWrAOiwQOhpgVQD+B7Ra60zTdj5gVkmwncebMg==}
+  motion-dom@12.28.2:
+    resolution: {integrity: sha512-Lu+N4CSyc0JZlssX1OvdAgHanP8SuXCa4ZU/dEjGbtwZOjC2BH5e7MfDDi/Kgnzsu+Oyw4QYKhgFici4LlLiyg==}
 
   motion-utils@12.27.2:
     resolution: {integrity: sha512-B55gcoL85Mcdt2IEStY5EEAsrMSVE2sI14xQ/uAdPL+mfQxhKKFaEag9JmfxedJOR4vZpBGoPeC/Gm13I/4g5Q==}
@@ -3078,9 +3078,9 @@ snapshots:
       hasown: 2.0.2
       mime-types: 2.1.35
 
-  framer-motion@12.28.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  framer-motion@12.28.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      motion-dom: 12.28.1
+      motion-dom: 12.28.2
       motion-utils: 12.27.2
       tslib: 2.8.1
     optionalDependencies:
@@ -3459,7 +3459,7 @@ snapshots:
 
   moo@0.5.2: {}
 
-  motion-dom@12.28.1:
+  motion-dom@12.28.2:
     dependencies:
       motion-utils: 12.27.2
 
