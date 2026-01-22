@@ -4,7 +4,6 @@ import { useContent } from '@/contexts/ContentContext';
 import SectionTitle from './SectionTitle';
 import { Icon } from '@iconify/react';
 
-
 const Experience = ({ transitionDelay }) => {
   const { content } = useContent();
 

@@ -7,7 +7,6 @@ import Chip from './Chip';
 import LoadingSpinner from './LoadingSpinner';
 import { initSectionAnimations } from '@/utils/sectionObserver';
 
-
 const Technologies = ({ transitionDelay }) => {
   const { content, loading } = useContent();
 
