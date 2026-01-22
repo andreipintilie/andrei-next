@@ -11,7 +11,7 @@ export default function Hero({ transitionDelay }) {
       style={transitionDelay ? { transitionDelay } : undefined}
     >
       <div className='not-first:flex flex-col justify-center items-center bg-primary mx-auto px-4 py-8 max-w-116 text-3xl text-center leading-14 container-secondary'>
-        <p className='flex items-center gap-3 mb-2 font-regular text-xl uppercase tracking-wider'>
+        <p className='flex items-center justify-center gap-3 mb-2 font-regular text-xl uppercase tracking-wider'>
           Hi there!
           <Icon
             icon='tdesign:wave-bye-filled'
@@ -29,7 +29,11 @@ export default function Hero({ transitionDelay }) {
           <h1 className='bg-primary text-xl'>Front-End Developer</h1>
         </div>
 
-        <a href='contact' className='button iconButton' onClick={goToSection}>
+        <a
+          href='contact'
+          onClick={goToSection}
+          className='button flex items-center gap-2 w-max mx-auto font-semibold'
+        >
           Contact me
           <Icon icon='akar-icons:arrow-down' />
         </a>
