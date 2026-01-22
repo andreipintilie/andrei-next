@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import SectionTitle from './SectionTitle';
 
-const Contact = () => {
+const Contact = ({ transitionDelay }) => {
   const formRef = useRef(null);
   const statusRef = useRef(null);
 
@@ -52,7 +52,11 @@ const Contact = () => {
   }, []);
 
   return (
-    <section className='section containerSecondary' id='contact'>
+    <section
+      className='section sectionAnimated containerSecondary'
+      id='contact'
+      style={transitionDelay ? { transitionDelay } : undefined}
+    >
       <SectionTitle>
         Contact
         <Icon

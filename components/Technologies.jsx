@@ -7,12 +7,12 @@ import Chip from './Chip';
 import LoadingSpinner from './LoadingSpinner';
 import { initSectionAnimations } from '@/utils/sectionObserver';
 
-const Technologies = () => {
+
+const Technologies = ({ transitionDelay }) => {
   const { content, loading } = useContent();
 
   useEffect(() => {
     const observer = initSectionAnimations();
-
     return () => {
       if (observer) {
         observer.disconnect();
@@ -25,7 +25,11 @@ const Technologies = () => {
   }
 
   return (
-    <section className='mt-6 md:mt-10 text-white' id='technologies'>
+    <section
+      className='mt-6 md:mt-10 text-white sectionAnimated'
+      id='technologies'
+      style={transitionDelay ? { transitionDelay } : undefined}
+    >
       <div className='mx-auto containerSecondary'>
         <ul className='flex flex-wrap gap-5 gap-y-3'>
           {content.technologies.map((technology, index) => (

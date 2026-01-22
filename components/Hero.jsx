@@ -3,11 +3,12 @@
 import { Icon } from '@iconify/react';
 import { goToSection } from '@/utils/scrollUtils';
 
-export default function Hero() {
+export default function Hero({ transitionDelay }) {
   return (
     <section
-      className='flex items-center min-h-94 md:min-h-[35.5rem] text-white section'
+      className='flex items-center min-h-94 md:min-h-[35.5rem] text-white section sectionAnimated'
       data-background
+      style={transitionDelay ? { transitionDelay } : undefined}
     >
       <div className='flex flex-col justify-center items-center bg-primary mx-auto px-4 py-8 max-w-116 text-3xl text-center leading-14 container-secondary'>
         <p className='flex items-center gap-3 mb-2 font-regular text-xl uppercase tracking-wider'>

@@ -9,7 +9,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer>
+    <footer className='sectionAnimated'>
       <div className='mt-20 md:mt-40 flex md:flex-row flex-col flex-wrap justify-between items-center gap-8 mb-20 md:mb-15 text-white containerSecondary'>
         <div>
           <a className='textLogo' href='/'>

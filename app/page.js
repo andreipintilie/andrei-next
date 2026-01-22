@@ -5,15 +5,21 @@ import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 
+const sections = [
+  { Component: Hero },
+  { Component: Technologies },
+  { Component: About },
+  { Component: Experience },
+  { Component: Education },
+  { Component: Contact },
+];
+
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Technologies />
-      <About />
-      <Experience />
-      <Education />
-      <Contact />
+      {sections.map(({ Component }, idx) => (
+        <Component key={idx} transitionDelay={`${idx * 0.15}s`} />
+      ))}
     </>
   );
 };

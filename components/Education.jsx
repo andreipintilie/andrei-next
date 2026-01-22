@@ -4,11 +4,16 @@ import { useContent } from '@/contexts/ContentContext';
 import SectionTitle from './SectionTitle';
 import { Icon } from '@iconify/react';
 
-const Education = () => {
+
+const Education = ({ transitionDelay }) => {
   const { content } = useContent();
 
   return (
-    <section className='text-white section containerSecondary' id='education'>
+    <section
+      className='text-white section sectionAnimated containerSecondary'
+      id='education'
+      style={transitionDelay ? { transitionDelay } : undefined}
+    >
       <SectionTitle>
         Education
         <Icon
