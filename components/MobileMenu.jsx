@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { menuItems } from '@/utils/menuItems';
 import { goToSection } from '@/utils/scrollUtils';
@@ -52,36 +53,53 @@ const MobileMenu = ({ isOpen, onClose }) => {
     }, 100);
   };
 
-  if (!isOpen) return null;
-
   return (
-    <>
-      <div
-        ref={overlayRef}
-        className='lg:hidden fixed top-0 left-0 z-100 bg-black bg-opacity-50 w-full h-screen transition-opacity'
-      />
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          <motion.div
+            ref={overlayRef}
+            className='lg:hidden fixed top-0 left-0 z-100 bg-black/80 bg-opacity-50 w-full h-screen'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
 
-      <nav
-        ref={menuRef}
-        className={`lg:hidden fixed top-0 z-101 bg-primary w-full max-w-60 sm:max-w-70 h-screen transition-all duration-300 ${
-          isOpen ? 'right-0' : '-right-full'
-        }`}
-      >
-        <ul className='flex flex-col justify-center items-center gap-y-16 px-6 h-full'>
-          {menuItems.map(({ name, href }, i) => (
-            <li key={i}>
-              <button
-                className='button iconButton'
-                onClick={(e) => handleMenuItemClick(e, href)}
-              >
-                {name}
-                <Icon icon='akar-icons:arrow-right' />
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+          <motion.nav
+            ref={menuRef}
+            className='lg:hidden fixed top-0 right-0 z-101 bg-primary w-full max-w-60 sm:max-w-70 h-screen'
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <ul className='flex flex-col justify-center items-center gap-y-16 px-6 h-full'>
+              {menuItems.map(({ name, href }, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.1 + i * 0.1,
+                    ease: 'easeOut',
+                  }}
+                >
+                  <button
+                    className='button iconButton'
+                    onClick={(e) => handleMenuItemClick(e, href)}
+                  >
+                    {name}
+                    <Icon icon='akar-icons:arrow-right' />
+                  </button>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.nav>
+        </>
+      )}
+    </AnimatePresence>
   );
 };
 
