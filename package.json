@@ -12,7 +12,7 @@
     "@contentful/rich-text-html-renderer": "^17.1.6",
     "@iconify/react": "^6.0.2",
     "contentful": "^11.10.2",
-    "framer-motion": "^12.28.2",
+    "framer-motion": "^12.29.2",
     "lucide-react": "^0.544.0",
     "next": "15.5.9",
     "react": "19.1.0",
